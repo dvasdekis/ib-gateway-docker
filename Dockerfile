@@ -55,4 +55,7 @@ COPY ./restart-docker-vm.py /root/restart-docker-vm.py
 
 COPY ./supervisord.conf /root/supervisord.conf
 
-CMD /usr/bin/supervisord -c /root/supervisord.conf
+COPY ./main.sh /root/main.sh
+RUN chmod u+x /root/main.sh
+
+CMD /root/main.sh

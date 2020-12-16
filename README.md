@@ -44,13 +44,9 @@ All IPs on your network are able to connect to your box and place trades - so pl
 Use the command `docker run -e TWSUSERID=tws_user_id -e TWSPASSWORD=tws_password -e TRADING_MODE=paper -e XVFB_ARGS='"-ac -screen 0 1024x768x16 +extension RANDR"' -p 4002:4004 dvasdekis/ib-gateway-docker`
 to run a container instance locally and connect to it on port 4002.
 
+You may also add `-e READ_ONLY_API=no` to override the default TWS "read-only API" setting.
+
 ### Troubleshooting
-
-##### Read-Only API warning:
-IBC has decided not to support switching off the Read-Only checkbox (on by default) on the API Settings page.
-
-To work around it for some operations, you'll need to write a file called ibg.xml as a new file to `/root/Jts/*encrypted user id*/ibg.xml`. The ibg.xml file can be found in this folder after a succesful run and close, and contains the application's settings from the previous run.
-
 
 ##### 
 Sometimes, when running in non-daemon mode, you will see this:
