@@ -11,8 +11,8 @@ This repo takes mvberg's work and optimises it (targeting a e2-small instance on
 
 Despite being optimised for GCP, this still works nicely in a local Docker instance, with [IBC, successor of IB Controller](https://github.com/IbcAlpha/IBC) 
 
-* TWS Gateway: v978.2c (Current Stable)
-* IBC (new IB Controller): v3.8.2
+* TWS Gateway: v981.3d (Current Stable)
+* IBC (new IB Controller): v3.11.0
 
 ### Docker Hub image
 
@@ -23,7 +23,7 @@ Despite being optimised for GCP, this still works nicely in a local Docker insta
 Start an instance locally using Docker-Compose.
 
 To start an instance on Google Cloud:
-`gcloud compute instances create-with-container my-ib-gateway --container-image="docker.io/dvasdekis/ib-gateway-docker:v978" --container-env-file="./ibgateway.env" --machine-type=e2-small --container-env TWSUSERID="$tws_user_id",TWSPASSWORD="$tws_password",TRADING_MODE=paper --zone="my-preferred-zone"`
+`gcloud compute instances create-with-container my-ib-gateway --container-image="docker.io/dvasdekis/ib-gateway-docker:v981" --container-env-file="./ibgateway.env" --machine-type=e2-small --container-env TWSUSERID="$tws_user_id",TWSPASSWORD="$tws_password",TRADING_MODE=paper --zone="my-preferred-zone"`
 
 #### Logging in with VNC:
 

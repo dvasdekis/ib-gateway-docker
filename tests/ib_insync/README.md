@@ -1,2 +1,1 @@
-Holds IB_InSync tests
-
+Holds ib_insync tests
