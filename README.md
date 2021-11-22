@@ -6,24 +6,35 @@ This repo takes mvberg's work and optimises it (targeting a e2-small instance on
 * Ubuntu 20.04 (Default of 16.04 isn't docker optimised)
 * Removed installers after they are no longer used
 * Works with Stackdriver logging
-* Optimisation of the Java runtime options
+* Optimization of the Java runtime options
 * VNC scripting (which didn't restart the container on error) fixed via Supervisor
 
 Despite being optimised for GCP, this still works nicely in a local Docker instance, with [IBC, successor of IB Controller](https://github.com/IbcAlpha/IBC) 
 
-* TWS Gateway: v978.2c (Current Stable)
-* IBC (new IB Controller): v3.8.2
+### Latest Versions
+
+* TWS Gateway: v981.3d (Current Stable): 
+  * **Must download script [here](https://download2.interactivebrokers.com/installers/ibgateway/stable-standalone/ibgateway-stable-standalone-linux-x64.sh) prior to building containers.
+    It's too large for GitHub.**
+* IBC (new IB Controller): v3.11.0
+* ib_insync: v0.9.69
 
 ### Docker Hub image
 
 * [dvasdekis/ib-gateway-docker](https://hub.docker.com/r/dvasdekis/ib-gateway-docker)
 
-### Getting Started
+## Getting Started
+
+Due to file size constraints, you **must** download the IB Gateway script from Interactive Brokers in order to build the containers. The most recent version is 981.3d. If that gets bumped beyond 981, this repo might require updates. Run the following:
+
+```commandline
+wget -O ibgateway-stable-standalone-linux-9813d-x64.sh https://download2.interactivebrokers.com/installers/ibgateway/stable-standalone/ibgateway-stable-standalone-linux-x64.sh
+```
 
 Start an instance locally using Docker-Compose.
 
 To start an instance on Google Cloud:
-`gcloud compute instances create-with-container my-ib-gateway --container-image="docker.io/dvasdekis/ib-gateway-docker:v978" --container-env-file="./ibgateway.env" --machine-type=e2-small --container-env TWSUSERID="$tws_user_id",TWSPASSWORD="$tws_password",TRADING_MODE=paper --zone="my-preferred-zone"`
+`gcloud compute instances create-with-container my-ib-gateway --container-image="docker.io/dvasdekis/ib-gateway-docker:v981" --container-env-file="./ibgateway.env" --machine-type=e2-small --container-env TWSUSERID="$tws_user_id",TWSPASSWORD="$tws_password",TRADING_MODE=paper --zone="my-preferred-zone"`
 
 #### Logging in with VNC:
 

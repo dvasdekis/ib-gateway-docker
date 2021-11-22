@@ -6,9 +6,10 @@
 
 bin/
 target/
+*.DS_Store
 
 *.pyc
-
+*.python_version
 Logs/*
 
 node_modules/

@@ -1,1 +1,1 @@
-ib-insync==0.9.56
+ib-insync==0.9.69
